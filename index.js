@@ -2,7 +2,7 @@
 require('dotenv').config(); // טוען משתני סביבה מקובץ .env
 
 const express = require('express');
-const { DeepSeek } = require('deepseek');
+const OpenAI = require('openai');
 const cors = require('cors');
 
 const app = express();
@@ -26,8 +26,10 @@ if (!deepseekApiKey) {
     process.exit(1); // צא מהאפליקציה אם המפתח חסר
 }
 
-// יצירת מופע של לקוח DeepSeek
-const deepseek = new DeepSeek({ apiKey: deepseekApiKey }); 
+const deepseek = new OpenAI({
+    apiKey: deepseekApiKey,
+    baseURL: "https://api.deepseek.com/v1" // זה קריטי כדי לכוון את OpenAI ל-DeepSeek
+});
 
 
 // נקודת קצה (Endpoint) שאליה האתר ישלח בקשות
