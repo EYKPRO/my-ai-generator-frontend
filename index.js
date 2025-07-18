@@ -2,7 +2,7 @@
 require('dotenv').config(); // טוען משתני סביבה מקובץ .env
 
 const express = require('express');
-const DeepSeek = require('deepseek'); // וודא שזה DeepSeek ולא { DeepSeek }
+const { DeepSeek } = require('deepseek');
 const cors = require('cors');
 
 const app = express();
