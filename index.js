@@ -7,18 +7,13 @@ const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000; // פורט 3000 מקומית, או פורט ש-Render נותן
-
-// *** חשוב: הגדרות CORS ***
-// זה קריטי כדי שהאתר שלך יוכל לדבר עם השרת.
-// Replace 'http://YOUR_FRONTEND_URL.com' and other placeholders
-// with the ACTUAL URLs where your website will be hosted.
-// For local testing, you can leave 'http://localhost:8080'.
+// הגדרות CORS: מאפשרות לאתר שלך לתקשר עם השרת
+// חשוב: החלף את 'https://eykpro.github.io' ב-URL האמיתי של האתר שלך מ-GitHub Pages
 app.use(cors({
     origin: [
-        'http://localhost:8080', // עבור בדיקה מקומית של האתר
-        // 'https://your-website-name.netlify.app', // דוגמה: אם תארח ב-Netlify
-        // 'https://your-github-username.github.io/your-repo-name' // דוגמה: אם תארח ב-GitHub Pages
-        // הוסף כאן את ה-URL האמיתי של האתר שלך כשתארח אותו
+        'http://localhost:8080', // עבור בדיקה מקומית של האתר שלך
+        'https://eykproE.github.io', // כתובת ה-GitHub Pages הכללית שלך
+        'https://eykpro.github.io/my-ai-generator-frontend' // כתובת הפרויקט הספציפית ב-GitHub Pages
     ]
 }));
 app.use(express.json()); // מאפשר לשרת לקבל גוף בקשות בפורמט JSON
