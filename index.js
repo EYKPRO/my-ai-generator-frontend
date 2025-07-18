@@ -26,7 +26,8 @@ if (!deepseekApiKey) {
     process.exit(1); // צא מהאפליקציה אם המפתח חסר
 }
 
-
+// יצירת מופע של לקוח DeepSeek
+const deepseek = new DeepSeek({ apiKey: deepseekApiKey }); 
 
 
 // נקודת קצה (Endpoint) שאליה האתר ישלח בקשות
