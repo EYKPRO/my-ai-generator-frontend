@@ -2,18 +2,19 @@
 require('dotenv').config(); // טוען משתני סביבה מקובץ .env
 
 const express = require('express');
-const DeepSeek = require('deepseek');
+const DeepSeek = require('deepseek'); // וודא שזה DeepSeek ולא { DeepSeek }
 const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000; // פורט 3000 מקומית, או פורט ש-Render נותן
+
 // הגדרות CORS: מאפשרות לאתר שלך לתקשר עם השרת
 // חשוב: החלף את 'https://eykpro.github.io' ב-URL האמיתי של האתר שלך מ-GitHub Pages
 app.use(cors({
     origin: [
         'http://localhost:8080', // עבור בדיקה מקומית של האתר שלך
-        'https://eykproE.github.io', // כתובת ה-GitHub Pages הכללית שלך
-        'https://eykpro.github.io/my-ai-generator-frontend' // כתובת הפרויקט הספציפית ב-GitHub Pages
+        'https://eykpro.github.io', // וודא ששם המשתמש כאן מדויק
+        'https://eykpro.github.io/my-ai-generator-frontend' // וודא ששם המשתמש כאן מדויק
     ]
 }));
 app.use(express.json()); // מאפשר לשרת לקבל גוף בקשות בפורמט JSON
@@ -24,6 +25,9 @@ if (!deepseekApiKey) {
     console.error('שגיאה: משתנה סביבה DEEPSEEK_KEY לא מוגדר!');
     process.exit(1); // צא מהאפליקציה אם המפתח חסר
 }
+
+// יצירת מופע של לקוח DeepSeek
+const deepseek = new DeepSeek({ apiKey: deepseekApiKey }); // זו השורה שחשובה, וודא ש"deepseek api client" לא מופיע מעליה!
 
 
 // נקודת קצה (Endpoint) שאליה האתר ישלח בקשות
