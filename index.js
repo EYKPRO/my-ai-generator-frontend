@@ -14,7 +14,7 @@ app.use(cors({
     origin: [
         'http://localhost:8080', // עבור בדיקה מקומית של האתר שלך
         'https://eykpro.github.io', // וודא ששם המשתמש כאן מדויק
-        'https://eykpro.github.io/my-ai-generator-frontend' // וודא ששם המשתמש כאן מדויק
+        'https://eykpro.github.io/my-ai-generator-frontend-2-/' // וודא ששם המשתמש כאן מדויק
     ]
 }));
 app.use(express.json()); // מאפשר לשרת לקבל גוף בקשות בפורמט JSON
